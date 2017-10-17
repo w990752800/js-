@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var oBtn =document.getElementById('btn1');
+            var oUl = document.getElementById('list');
+            var liArr = ['北京的“初雪”有严格标准，气象专家表示','北京的“初雪”有严格标准，气象专家表示','北京的“初雪”有严格标准，气象专家表示','北京的“初雪”有严格标准，气象专家表示'];
+            var onOff = true;
+            oBtn.onclick = function(){
+                if(onOff){
+                    for(var i=0;i<liArr.length;i++){
+                        oUl.innerHTML += '<li>'+ liArr[i] +'</li>';
+                    }
+                    onOff = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+<ul id="list"></ul>
+</body>
+</html>

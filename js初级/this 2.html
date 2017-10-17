@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            width: 100px;
+            height: 100px;
+            margin-left:90px;
+            float: left;
+            position: relative;
+        }
+        div{
+            width: 100px;
+            height: 300px;
+            background-color:red;
+            position: absolute;
+            top:100px;
+            left:0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<ul>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+</ul>
+</body>
+<script>
+    var oLi = document.getElementsByTagName('li');
+    var that = null;
+    for(var i=0;i<oLi.length;i++){
+        oLi[i].onmouseover = function(){
+            that = this;
+            fn();
+        };
+        oLi[i].onmouseout = function(){
+            this.getElementsByTagName('div')[0].style.display = 'none';
+        }
+        function fn(){
+            that.getElementsByTagName('div')[0].style.display = 'block';
+        }
+
+    }
+</script>
+</html>

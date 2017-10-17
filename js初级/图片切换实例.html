@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+        #box{
+            margin:0 auto;
+            width: 400px;
+            height: 500px;
+            position: relative;
+            background:url(img2/loader_ico.gif) no-repeat center center #000;
+        }
+        #box img{
+            width: 400px;
+            height: 500px;
+        }
+        #box ul{
+            margin:0;
+            padding:0;
+            width: 40px;
+            position: absolute;
+            top:0;
+            right:-50px;
+        }
+        #box li{
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            margin-bottom:10px;
+            background-color: #ccc;
+        }
+        #box p,#box span{
+            position: absolute;
+            left:0;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
+        #box p{
+            top:0;
+            margin:0;
+        }
+        #box span{
+            bottom:0;
+        }
+        #box .active{
+            background-color: #ec971f;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="" alt="" id="img1">
+    <ul id="ul">
+    </ul>
+    <p id="p1"></p>
+    <span id="span1"></span>
+</div>
+</body>
+<script>
+    var oImg = document.getElementsByTagName('img')[0];
+    var oP = document.getElementsByTagName('p')[0];
+    var oSpan = document.getElementsByTagName('span')[0];
+    var oUl= document.getElementsByTagName('ul')[0];
+    var oLi = oUl.getElementsByTagName('li');
+    var num =0;
+    var imgArr = ['img2/1.png','img2/2.png','img2/3.png','img2/4.png'];
+    var txtArr = ['第一张','第二张','第三张','第四张'];
+    var oldLi = null;
+    //初始化
+    oImg.src = imgArr[num];
+    oP.innerHTML = num+1+'/'+imgArr.length;
+    oSpan.innerHTML = txtArr[num];
+    for(var i = 0;i<imgArr.length;i++){
+        oUl.innerHTML += '<li></li>';
+    }
+    oLi[num].className = 'active';
+
+
+    for(var i = 0;i<oLi.length;i++){
+        oLi[i].index = i;
+        oLi[i].onclick = function(){
+            oImg.src = imgArr[this.index];
+            oSpan.innerHTML = txtArr[this.index];
+            oP.innerHTML = 1+this.index+'/'+imgArr.length;
+//            for(var i=0;i<oLi.length;i++){
+//                oLi[i].className = '';
+//            }
+//            this.className = 'active';
+
+        }
+
+
+    }
+
+
+</script>
+</html>

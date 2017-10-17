@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/normal.png" alt="">
+<img src="img/normal.png" alt="">
+<img src="img/normal.png" alt="">
+</body>
+<script>
+    var oImg = document.getElementsByTagName('img');
+    for(var i=0;i<oImg.length;i++){
+        oImg[i].onOff = true;
+        oImg[i].onclick = function(){
+            if(this.onOff){
+                this.src = 'img/active.png';
+                this.onOff = false;
+            }else {
+                this.src = 'img/normal.png';
+                this.onOff = true;
+            }
+        }
+    }
+</script>
+</html>
