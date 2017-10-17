@@ -7,19 +7,16 @@
 <body>
 <input id="txt1" type="text">
 <input id="btn1" type="button" value="按钮">
-<select name="" id="select1">
-    <option value="北京">北京</option>
-    <option value="上海">上海</option>
-    <option value="广州">广州</option>
-</select>
+<br>
+<img id="img1" src="img/1.jpg" alt="" width="400">
 </body>
 <script>
     window.onload = function () {
         var oBtn = document.getElementById('btn1');
         var oTxt = document.getElementById('txt1');
-        var oSelect = document.getElementById('select1');
+        var oImg = document.getElementById('img1');
         oBtn.onclick = function () {
-            oTxt.value = oSelect.value;
+            oImg.src = oTxt.value;
         };
     };
 </script>

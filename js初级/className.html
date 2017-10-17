@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            width: 200px;
+            background-color: red;
+            color:yellow;
+            border:2px solid #ccc;
+        }
+        .yellow{
+            width: 200px;
+            background-color: yellow;
+            color:red;
+            border:2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<input id="btn1" type="button" value="红">
+<input id="btn2" type="button" value="黄">
+<p id="p1">好好学习 ， 天天向上；</p>
+</body>
+<script>
+    window.onload = function(){
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oP = document.getElementById('p1');
+        oBtn1.onclick = function(){
+            oP.className = "red";
+
+        };
+        oBtn2.onclick = function(){
+            oP.className = "yellow";
+
+        };
+
+    };
+</script>
+</html>

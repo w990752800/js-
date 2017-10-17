@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            border:2px solid #ccc;
+            overflow: hidden;
+            position: relative;
+            margin:0 auto;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+        }
+        a{
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            border:2px solid #fff;
+            position: absolute;
+            top:50%;
+            margin-top:-10px;
+            color:#fff;
+        }
+        #prev{
+            left:0;
+        }
+        #next{
+            right:0;
+        }
+        p{
+            width: 100%;
+            position: absolute;
+            bottom:0;
+            left:0;
+            background-color: #000;
+            color:#fff;
+            text-align: center;
+            margin:0;
+        }
+        #text{
+            width: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            text-align: center;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <a href="javascript:;" id="prev"> < </a>
+    <a href="javascript:;" id="next"> > </a>
+    <img alt="" id="img1">
+    <span id="text">计算中。。。</span>
+    <p id="p1">加载中。。。</p>
+</div>
+
+<script>
+    window.onload = function(){
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var oImg = document.getElementById('img1');
+        var oTxt = document.getElementById('text');
+        var oP = document.getElementById('p1');
+        //初始化
+        var txtArr = ['第一张','第二张','第三张','四张'];
+        var imgArr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+        var num = 0;
+        function fnTab(){
+            oImg.src = imgArr[num];
+            oP.innerHTML = txtArr[num];
+            oTxt.innerHTML = num+1+'/'+txtArr.length;
+        }
+        fnTab();
+        oPrev.onclick  = function(){
+            num--;
+            if(num == -1){
+                num = txtArr.length-1;
+            }
+            fnTab();
+        }
+        oNext.onclick  = function(){
+            num++;
+            if(num == txtArr.length){
+                num = 0;
+            }
+            fnTab();
+        }
+    }
+</script>
+</body>
+</html>

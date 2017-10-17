@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border:2px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oAttr = document.getElementById('attr');
+            var oVal = document.getElementById('val');
+            var oDiv = document.getElementById('div1');
+            var oBtn = document.getElementById('btn1');
+            oBtn.onclick = function(){
+                oDiv.style[oAttr.value] = oVal.value;
+            }
+
+        }
+    </script>
+</head>
+<body>
+元素的属性名称：<input id="attr" type="text">
+元素的值：<input type="text" id="val">
+<input type="button" value="按钮" id="btn1">
+<br>
+<div id="div1"></div>
+</body>
+</html>
