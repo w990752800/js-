@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,h2{margin:0;padding:0;}
+        li{
+            list-style: none;
+        }
+        #ul{
+            width: 240px;
+            margin:0 auto;
+            border:1px solid #000;
+        }
+        #ul h2{
+            color:#fff;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: url(img2/ico1.gif) no-repeat 5px center #f60;
+        }
+        #ul h2.active{
+            background: url(img2/ico2.gif) no-repeat 5px center #f00;
+
+        }
+        #ul li{
+            border-bottom:1px solid #ccc;
+            text-align: center;
+        }
+        #ul ul{
+            display:none;
+        }
+        #ul ul li.hover{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li>
+        <h2>我的好友</h2>
+        <ul>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+        </ul>
+    </li>
+    <li>
+        <h2>企业好友</h2>
+        <ul>
+            <li>李四</li>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+        </ul>
+    </li>
+    <li>
+        <h2>黑名单</h2>
+        <ul>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script>
+    var oUl = document.getElementById('ul');
+    var oH2 = oUl.getElementsByTagName('h2');
+    var oUl2 = oUl.getElementsByTagName('ul');
+    var liArr = null;
+    var liArr2 = [];
+    for(var i=0;i<oH2.length;i++){
+        oH2[i].index = i;
+        oH2[i].onclick = function(){
+            if(this.className == ''){
+                oUl2[this.index].style.display = 'block';
+                this.className = 'active';
+            }else{
+                oUl2[this.index].style.display = 'none';
+                this.className = '';
+            }
+        }
+    }
+
+    for(var i=0;i<oUl2.length;i++){
+        liArr = oUl2[i].getElementsByTagName('li');
+        for(var j= 0;j<liArr.length;j++){
+            liArr2.push(liArr[j]);
+        }
+    }
+
+    for(var i=0;i<liArr2.length;i++){
+        liArr2[i].onclick = function(){
+            for(var i= 0;i<liArr2.length;i++){
+                liArr2[i].className = '';
+            }
+            this.className = 'hover';
+        }
+    }
+</script>
+</html>

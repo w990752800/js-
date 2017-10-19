@@ -73,16 +73,20 @@
     var num =0;
     var imgArr = ['img2/1.png','img2/2.png','img2/3.png','img2/4.png'];
     var txtArr = ['第一张','第二张','第三张','第四张'];
-    var oldLi = null;
+//    var oldLi = null;
+    for(var i = 0;i<imgArr.length;i++){
+        oUl.innerHTML += '<li></li>';
+    }
+
     //初始化
     oImg.src = imgArr[num];
     oP.innerHTML = num+1+'/'+imgArr.length;
     oSpan.innerHTML = txtArr[num];
-    for(var i = 0;i<imgArr.length;i++){
-        oUl.innerHTML += '<li></li>';
+    for(var i=0;i<oLi.length;i++){
+        oLi[i].className = '';
     }
     oLi[num].className = 'active';
-    oldLi = oLi[num];
+//    oldLi = oLi[num];
 
     for(var i = 0;i<oLi.length;i++){
         oLi[i].index = i;
@@ -90,13 +94,13 @@
             oImg.src = imgArr[this.index];
             oSpan.innerHTML = txtArr[this.index];
             oP.innerHTML = 1+this.index+'/'+imgArr.length;
-//            for(var i=0;i<oLi.length;i++){
-//                oLi[i].className = '';
-//            }
-//            this.className = 'active';
-            oldLi.className = '';
-            oldLi = this;
-            oldLi.className = 'active';
+            for(var i=0;i<oLi.length;i++){
+                oLi[i].className = '';
+            }
+            this.className = 'active';
+//            oldLi.className = '';
+//            oldLi = this;
+//            oldLi.className = 'active';
 
         }
 
