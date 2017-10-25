@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var oList = document.getElementById('list');
+            var oLi = oList.getElementsByTagName('li');
+
+            for(var i =0;i<oLi.length;i++){
+                fn(oLi[i]);
+            }
+            function fn(a){
+                var oBtn = a.getElementsByTagName('input');
+                var oStrong = a.getElementsByTagName('strong')[0];
+                var oEm = a.getElementsByTagName('em')[0];
+                var oSpan = a.getElementsByTagName('span')[0];
+                var n1 = Number(oStrong.innerHTML);
+                var n2 = parseFloat(oEm.innerHTML);
+                oBtn[1].onclick = function(){
+                    n1++;
+                    oStrong.innerHTML = n1;
+                    oSpan.innerHTML = n1*n2+'元';
+                }
+                oBtn[0].onclick = function(){
+                    n1--;
+                    if(n1<0){
+                       n1 = 0;
+                    }
+                    oStrong.innerHTML = n1;
+                    oSpan.innerHTML = n1*n2+'元';
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<ul id="list">
+    <li>
+        <input type="button" value="-">
+        <strong>0</strong>
+        <input type="button" value="+">
+        单价：<em>12.5元</em>
+        一共：<span></span>
+    </li>
+    <li>
+        <input type="button" value="-">
+        <strong>0</strong>
+        <input type="button" value="+">
+        单价：<em>12.5元</em>
+        一共：<span></span>
+    </li>
+    <li>
+        <input type="button" value="-">
+        <strong>0</strong>
+        <input type="button" value="+">
+        单价：<em>12.5元</em>
+        一共：<span></span>
+    </li>
+</ul>
+
+</body>
+</html>

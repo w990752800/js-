@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function Songmeneger() {
+        this.songList = [];
+    }
+    Songmeneger.prototype = {
+        init:function(songList){
+            this.songList = songList;
+        },
+        addSong:function (song) {
+            this.songList.push(song);
+        },
+        moveSong:function (singer) {
+            var song = this.chaSong(singer);
+            if(song == null){
+                throw '删的歌不存在';
+            }
+            var index = this.songList.indexOf(song);
+            this.songList.splice(index,1);
+         },
+        replaceSong:function (songName,singer) {
+            var song = this.chaSong(songName);
+            if(song == null){
+                throw '改的歌不存在';
+            }
+            song.singer = singer;
+        },
+        chaSong:function (songName) {
+        for (var k = 0; k < this.songList.length; k++) {
+            var song = this.songList[k];
+            if (song.songName == songName) {
+                return song;
+            }
+        }
+        return null;
+        }
+
+    };
+    var wnfSong = new Songmeneger();
+//    wnfSong.addSong({
+//        songName:'dfa',
+//        singer:'asfs'
+//    });
+    wnfSong.init([
+        {
+            songName:'adfadf',
+            singer:'cccc'
+        },
+        {
+            songName:'wnf',
+            singer:'ddd'
+        }
+    ]);
+//    wnfSong.moveSong('wnf');
+//    wnfSong.replaceSong('wnf','fff');
+    wnfSong.chaSong('wnf');
+    console.log(wnfSong.songList);
+</script>
+<body>
+
+</body>
+</html>

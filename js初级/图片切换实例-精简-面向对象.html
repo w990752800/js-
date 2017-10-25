@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+        #box{
+            margin:0 auto;
+            width: 400px;
+            height: 500px;
+            position: relative;
+            background:url(img2/loader_ico.gif) no-repeat center center #000;
+        }
+        #box img{
+            width: 400px;
+            height: 500px;
+        }
+        #box ul{
+            margin:0;
+            padding:0;
+            width: 40px;
+            position: absolute;
+            top:0;
+            right:-50px;
+        }
+        #box li{
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            margin-bottom:10px;
+            background-color: #ccc;
+        }
+        #box p,#box span{
+            position: absolute;
+            left:0;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
+        #box p{
+            top:0;
+            margin:0;
+        }
+        #box span{
+            bottom:0;
+        }
+        #box .active{
+            background-color: #ec971f;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="" alt="" id="img1">
+    <ul id="ul">
+    </ul>
+    <p id="p1"></p>
+    <span id="span1"></span>
+</div>
+</body>
+<script>
+
+    function Fn(id) {
+
+        var oBox = document.getElementById(id);
+        this.oImg = oBox.getElementsByTagName('img')[0];
+        this.oP = oBox.getElementsByTagName('p')[0];
+        this.oSpan = oBox.getElementsByTagName('span')[0];
+        this.oUl = oBox.getElementsByTagName('ul')[0];
+        this.oLi = oBox.getElementsByTagName('li');
+        var num = 0;
+
+        var _this = this;
+        imgArr = ['img2/1.png', 'img2/2.png', 'img2/3.png', 'img2/4.png'];
+        txtArr = ['第一张', '第二张', '第三张', '第四张'];
+//    var oldLi = null;
+        for (var i = 0; i < imgArr.length; i++) {
+            this.oUl.innerHTML += '<li></li>';
+        }
+
+        //初始化
+        this.oImg.src = imgArr[num];
+        this.oP.innerHTML = num + 1 + '/' + imgArr.length;
+        this.oSpan.innerHTML = txtArr[num];
+        for (var i = 0; i < this.oLi.length; i++) {
+            this.oLi[i].className = '';
+        }
+        this.oLi[num].className = 'active';
+//    oldLi = oLi[num];
+
+        for (var i = 0; i < this.oLi.length; i++) {
+            this.oLi[i].index = i;
+            this.oLi[i].onclick = function(){
+                _this.tab(this);
+            }
+
+
+        }
+
+
+    }
+   Fn.prototype.tab = function(a){
+        this.oImg.src = imgArr[index];
+        this.oSpan.innerHTML = txtArr[index];
+        this.oP.innerHTML = 1+index+'/'+imgArr.length;
+        for(var i=0;i<oLi.length;i++){
+            this.oLi[i].className = '';
+        }
+        a.className = 'active';
+//            oldLi.className = '';
+//            oldLi = this;
+//            oldLi.className = 'active';
+
+    }
+
+</script>
+</html>

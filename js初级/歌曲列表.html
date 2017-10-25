@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var songList = [
+        {
+            songName:'情书',
+            singer:'张学友'
+        },
+        {
+            songName:'演员',
+            singer:'薛之谦'
+        },
+        {
+            songName:'记事本',
+            singer:'陈小琳'
+        }
+    ];
+    //增删改查
+    songList.push({
+        songName:'K歌之王',
+        singer:'陈奕迅'
+    });
+    console.log(songList);
+
+    for(var i=0;i<songList.length;i++){
+        var song = songList[i];
+        if(song.singer == '薛之谦'){
+            songList.splice(i,1);//删第几个，删一个
+        }
+    }
+    console.log(songList);
+
+    for(var j=0;j<songList.length;j++){
+        var song = songList[j];
+        if(song.songName == '记事本'){
+            song.singer = '陈慧琳'
+        }
+    }
+    console.log(songList);
+
+    for(var k= 0;k<songList.length;k++){
+        var song = songList[k];
+        if(song.songName == '情书'){
+            console.log(song.singer)
+        }
+    }
+
+</script>
+<body>
+
+</body>
+</html>
