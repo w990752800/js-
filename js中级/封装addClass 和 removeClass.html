@@ -5,10 +5,9 @@
     <title>Title</title>
     <script>
         window.onload = function(){
-            var oBox = document.getElementById('box');
-            var oBox2 = document.getElementById('box2');
-            addClass(oBox,'box1');
-            removeClass(oBox2,'div');
+            var oDiv1 = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            removeClass(oDiv2,"box2");
 
             function addClass(obj,className){
                 if(obj.className == ''){
@@ -22,16 +21,16 @@
                 }
             }
 
-            function removeClass(obj,className){
-                if(obj.className != ''){
-                    var arrClassName = obj.className.split(' ');
-                    var _index = arrIndexOf(arrClassName,className);
-                    if(_index != -1){
-                        arrClassName.splice(_index,1);
-                        obj.className = arrClassName.join(' ');
-                    }
-                }
-            }
+           function removeClass(obj,className){
+               if(obj.className !=''){
+                   var arrClassName = obj.className.split(' ');
+                   var _index = arrIndexOf(arrClassName,className);
+                   if(_index != -1){
+                       arrClassName.splice(_index,1);
+                       obj.className = arrClassName.join(' ');
+                   }
+               }
+           }
 
             function arrIndexOf(arr,v){
                 for(var i=0;i<arr.length;i++){
@@ -45,7 +44,7 @@
     </script>
 </head>
 <body>
-<div id="box" class=""> </div>
-<div id="box2" class="div"></div>
+<div id="div1" class="box11"> 1111111111111111</div>
+<div id="div2" class="box2">222222222222222</div>
 </body>
 </html>
