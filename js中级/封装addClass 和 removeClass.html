@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var oBox2 = document.getElementById('box2');
+            addClass(oBox,'box1');
+            removeClass(oBox2,'div');
+
+            function addClass(obj,className){
+                if(obj.className == ''){
+                    obj.className = className;
+                }else{
+                    var arrClassName = obj.className.split(' ');
+                    var _index = arrIndexOf(arrClassName,className);
+                    if( _index == -1){
+                        obj.className += ' ' + className;
+                    }
+                }
+            }
+
+            function removeClass(obj,className){
+                if(obj.className != ''){
+                    var arrClassName = obj.className.split(' ');
+                    var _index = arrIndexOf(arrClassName,className);
+                    if(_index != -1){
+                        arrClassName.splice(_index,1);
+                        obj.className = arrClassName.join(' ');
+                    }
+                }
+            }
+
+            function arrIndexOf(arr,v){
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i].className == v){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box" class=""> </div>
+<div id="box2" class="div"></div>
+</body>
+</html>
