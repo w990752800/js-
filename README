@@ -2,3 +2,30 @@
     1，split（）将字符串分割成数组；
     2，splice（）删除数组中的元素，第一个参数：表示index值。第二个参数：表示删几个。
     3，join（）将数组中的元素合并成字符串；
+二，ajax
+	1.关于post：在send（）之前 要加  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	2. 使用ajax提交表单--就不用submit按钮
+	3. 原生ajax步骤：
+		//1.先得到ajax的核心对象
+			function getXhr(){	
+				var xhr = null;
+				if(window.XMLHttpRequest){	
+					xhr = new XMLHttpRequest;
+				}else{	
+					xhr = new ActiveXObject('Microsoft.XMLHttp');
+				}
+				return xhr;
+			}
+		//2.与服务器链接，发送数据，响应，完成响应；
+			var xhr = getXhr();
+			xhr.open('post','01.php');
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			xhr.send('user=wnf&name=psd');
+			xhr.onreadystatechange = function(){	
+				if(xhr.readystate == 4){	
+					if(xhr.status == 200){	
+						var data = xhr.responseText;
+						alert(data);	
+					}	
+				}
+			}

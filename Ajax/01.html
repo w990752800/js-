@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<input type="button" value="按钮" id="btn">
 
 <script>
     function getXhr() {
@@ -17,20 +17,21 @@
         }
         return xhr;
     }
-
-    var xhr = getXhr();
-    xhr.open('get', '01.php?user=wnf');
-    xhr.send('user=wnf');
-    xhr.onreadystatechange = function () {
-        if(xhr.readyState == 4){
-            if(xhr.status == 200){
-                var data = xhr.responseText;
-                alert(data);
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+        var xhr = getXhr();
+        xhr.open('get', '01.php?user=wnf');
+        xhr.send('user=wnf');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var data = xhr.responseText;
+                    alert(data);
+                }
             }
         }
-    }
 
-
+    };
 </script>
 </body>
 </html>
