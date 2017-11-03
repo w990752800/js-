@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" id="myform">
+		用户名：<input type="text" name="user" id="user"><br />
+		密码：<input type="password" name="psd" id="psd"><br />
+		<input type="button" value="按钮" id="btn">
+	</form>
+	<script>
+	function getXhr(){	
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();	
+		}else{	
+			xhr = new ActiveXObject('Microsoft.XMLHttp');
+		}
+		return xhr;
+	}
+	var btn = document.getElementById('btn');
+	btn.onclick = function(){	
+		var xhr = getXhr();
+		var user = document.getElementById('user');
+		var psd = document.getElementById('psd');
+		xhr.open('post','04form.php');
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		xhr.send('user='+user+'&psd='+psd);
+		xhr.onreadystatechange = function(){	
+			if(xhr.readyState == 4){	
+				if(xhr.status == 200){	
+					var data = xhr.responseText;
+					console.log(data);
+				}
+			}
+		}
+	}
+	</script>
+</body>
+</html>

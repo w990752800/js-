@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="" id="pre">
+		<option value="">请选择</option>
+		<option value="">河南省</option>
+		<option value="">山东省</option>
+		<option value="">河北省</option>
+	</select>
+	<select name="" id="city">
+		<option value="">请选择</option>
+	</select>
+	<script>
+	var oPre = document.getElementById('pre');
+	var oCity = document.getElementById('city');
+	var arrCity = [];
+	oPre.onchange = function(){	
+		var preValue = pre.value;
+		switch(preValue){	
+			case '河南省':
+			arrCity = ['1','2','3'];
+			break;
+			case '山东省':
+			arrCity = ['11','22','33'];
+			break;
+			case '河北省':
+			arrCity = ['111','222','333'];
+			break;
+		}
+		for(var i=0;i<arrCity.length;i++){
+		
+			oCity.innerHTML = '<option>'+ arrCity[i] +'<option>';
+		}
+	}
+	
+	
+	</script>
+</body>
+</html>

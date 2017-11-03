@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script>
+  function Move(id,num) {
+        this.oBox = document.getElementById(id);
+        this.target = num;
+        var _this= this;
+        this.timer = setInterval(function(){
+            _this.autoplay();
+        },1000)
+    }
+    Move.prototype.autoplay = function (){
+        var step = (this.target - this.oBox.offsetLeft) / 10;
+        step<0?Math.floor(step):Math.ceil(step);
+        this.oBox.style.left = this.oBox.offsetLeft + step + 'px';
+        if(this.oBox.offsetLeft == step){
+            clearInterval(this.timer);
+        }
+    }
+    new Move('box',3000);
+</script>
+</body>
+</html>

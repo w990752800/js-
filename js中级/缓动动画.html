@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script>
+    window.onload = function () {
+        var oBox = document.getElementById('box');
+        var timer = null;
+        var target = 400;
+        timer = setInterval(function(){
+            var step = (target - oBox.offsetLeft) / 10;
+            step<0?Math.floor(step):Math.ceil(step);
+            oBox.style.left = oBox.offsetLeft + step + 'px';
+            if(oBox.offsetLeft == step){
+                clearInterval(timer);
+            }
+        },30)
+    }
+</script>
+</body>
+</html>

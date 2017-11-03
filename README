@@ -2,6 +2,7 @@
     1，split（）将字符串分割成数组；
     2，splice（）删除数组中的元素，第一个参数：表示index值。第二个参数：表示删几个。
     3，join（）将数组中的元素合并成字符串；
+    4，insetbefore(a,b)   在谁里面插入儿子，a：要插入的元素。b：参照点，哪个子元素的前面。 
 二，ajax
 	1.关于post：在send（）之前 要加  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	2. 使用ajax提交表单--就不用submit按钮

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="button" id="btn" value="post按钮">
+
+<script>
+	function getXhr(){	
+		var xhr = null;
+		if(window.XMLHttpRequest){	
+			xhr = new XMLHttpRequest();
+		}else{	
+			xhr = new ActiveXObject('Microsoft.XMLHttp');
+		}
+		return xhr;
+	}
+
+	var btn = document.getElementById('btn');
+	btn.onclick = function(){	
+		var xhr = getXhr();
+		xhr.open('post','03post.php');
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		xhr.send('user=wnf3&name=post')
+		xhr.onreadystatechange = function(){	
+			if(xhr.readyState == 4){
+				if(xhr.status == 200){
+					var data = xhr.responseText;
+					alert(data);	
+				}	
+			}
+		}
+	}
+
+</script>	
+</body>
+</html>
